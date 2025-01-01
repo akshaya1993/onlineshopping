@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cicd_pipeline
+  labels:
+    app: cicd_pipeline
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cicd_pipeline
+  template:
+    metadata:
+      labels:
+        app: cicd_pipeline
+    spec:
+      containers:
+      - name: cicd_pipeline
+        image: vaidikprabhu/pipeline-demo
+        ports:
+        - containerPort: 80

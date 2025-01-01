@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cicd_pipeline
+  labels:
+    app: cicd_pipeline
+spec:
+  selector:
+    app: cicd_pipeline
+  type: Loadbalancer 
+  ports:
+    - protocol: TCP
+      port: 8001
+      targetPort: 80
+      nodePort: 31200
