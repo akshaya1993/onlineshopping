@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: cicd_pipeline
+  name: cicdpipeline
   labels:
-    app: cicd_pipeline
+    app: cicdpipeline
 spec:
   selector:
-    app: cicd_pipeline
+    app: cicdpipeline
   type: Loadbalancer 
   ports:
     - protocol: TCP
