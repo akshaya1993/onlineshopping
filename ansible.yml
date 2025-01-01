@@ -1,8 +1,9 @@
 ---
 - hosts: all
-  become: true 
-  tasks: 
-     - name: create new Deployment
-       command: kubectl apply -f /home/ubuntu/deployment.yml --validate=false
-     - name: create new service
-       command: kubectl apply -f /home/ubuntu/service.yml   
+  become: true
+  tasks:
+    - name: Set KUBECONFIG environment variable
+      shell: export KUBECONFIG=/home/ubuntu/.kube/config && kubectl apply -f /home/ubuntu/deployment.yml --validate=false
+    - name: create new service
+      shell: export KUBECONFIG=/home/ubuntu/.kube/config && kubectl apply -f /home/ubuntu/service.yml --validate=false
+      
